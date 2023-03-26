@@ -16,10 +16,10 @@ eta = "10 Minutes"
 say = "" 
 outBound = "+15712450024"
 if call_purpose == "late": 
-  say= "Hello this is {} and I am running late to my {}. My Estimated Time is {}".format(User, call_purpose,eta )
+  say= "Hello this is {} and I am running late to my Appointment. My Estimated Time is {}".format(User,eta )
 
 elif call_purpose == "sick": 
-  say = "Hey, I am not going to be able to make it. I am currently sick. I am okay,butI won't be able to return your calls."
+  say = "Hey, I am not going to be able to make it. I am currently sick. I am okay,butI won't be able to return your calls until later today."
 elif call_purpose == "emergency": 
   say = "Hello, an Emergency came up and I won't be able to make it. I will call back late today and explained everything."
   
@@ -33,7 +33,7 @@ elif call_purpose =="make appointment":
 
 call = client.calls.create(
   
-  twiml='<Response>  <Pause length="3"/><Say> {}</Say></Response>'.format(say),
+  twiml='<Response><Pause length="3"/><Say> {}</Say></Response>'.format(say),
   to=outBound,
   from_="+18665253387"
 )
