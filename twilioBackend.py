@@ -5,23 +5,26 @@ from twilio.rest import Client
 # Set environment variables for your credentials
 # Read more at http://twil.io/secure
 
-account_sid = "AC1b7e9265d043418313fa0a98d23d2d86"
-auth_token = "b3dbc190f40d0d7338e7a09241d5cd7c"
+account_sid = ""
+auth_token = ""
 client = Client(account_sid, auth_token)
 User = "Ronald Santos Garcia"
+date ="March 25th"
 call_purpose = "appointment"
 reason = "late"
 eta = "10 Minutes"
 say = "" 
 outBound = "+15712450024"
-if reason == "late": 
+if call_purpose == "late": 
   say= "Hello this is {} and I am running late to my {}. My Estimated Time is {}".format(User, call_purpose,eta )
 
-elif reason == "accident": 
-  say = "Hey, I am not going to be able to make it. I was in accident. I am okay,I won't be able to return your calls."
-elif reason == "cannot come": 
-  say = "Cannot come to our event. Something came up. I will came back later and explain everything."
+elif call_purpose == "sick": 
+  say = "Hey, I am not going to be able to make it. I am currently sick. I am okay,butI won't be able to return your calls."
+elif call_purpose == "emergency": 
+  say = "Hello, an Emergency came up and I won't be able to make it. I will call back late today and explained everything."
   
+elif call_purpose =="make appointment": 
+  say = "Hello, I was calling to make a appointment type for {} on {}. I would like the earlier/later appointment for that {}. Thank you, have a good day".format(User,date,date)
   
   
   
